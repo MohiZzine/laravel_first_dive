@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+// use App\Models\Listing;
+use App\Http\Controllers\ListingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,18 +15,19 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => 
-        Listing::all()
-    ]);
-});
+// Naming conventions for routes:
+    // index - show all 
+    // show - show single
+    // create - show create form
+    // store - save new record
+    // edit - show edit form
+    // update - save updated record
+    // destroy - delete record
 
-Route::get('/listings/{id}', function($id) {
-    return view('listing', [
-        'listing' =>
-        Listing::find($id)
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
+
+Route::get('listings/{listing}', [ListingController::class, 'show']);
+
+
+
 
