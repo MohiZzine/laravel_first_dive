@@ -15,6 +15,10 @@
 @endunless
 
 </div>
+
+<div class="mt-6 p-4">
+    {{$listings->links()}}
+</div>
 </x-layout>
 {{-- @if(count($listings) == 0)
     <p>No listings found</p>
